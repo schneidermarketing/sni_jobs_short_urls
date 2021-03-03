@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Modal</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="Scripts/jquery.cookie.js"></script>
+<script src="Scripts/limitedFeatures.js"></script>
+<link rel="stylesheet" type="text/css" href="Content/themes/base/jquery.ui.base.1.9.2.css" />
+<link rel="stylesheet" type="text/css" href="Content/themes/base/jquery.ui.theme.css" />
+<style type="text/css" media="screen">
+	div#ModalDialog {
+		font-size: .8em;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	span.ui-button-text {
+		padding: 0 0 0 0;
+		text-align: center;
+		font-weight: bold !important;
+		font-size: 14px !important;
+		color: #fff !important;
+		text-shadow: 1px 1px 1px #dd5d0c;
+		cursor: pointer;
+		background: none;
+		line-height: 1em;
+		height: auto;
+		background-position: 0 0;
+		padding: 9px 0 6px 1px;
+		width: 80px;
+		margin: 5px 0 0 6px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 6px;
+		border: none;
+		border-right: 1px solid #A74600;
+		border-bottom: 1px solid #A74600;
+		-moz-box-shadow: 3px -3px 5px rgba(255,255,255,0.1),3px 3px 5px rgba(0,0,0,0.2),inset 2px 3px 1px rgba(255,255,255,0.3),inset -2px -2px 2px rgba(0,0,0,0.25);
+		-webkit-box-shadow: 3px -3px 5px rgba(255,255,255,0.1),3px 3px 5px rgba(0,0,0,0.2),inset 2px 3px 1px rgba(255,255,255,0.3),inset -2px -2px 2px rgba(0,0,0,0.25);
+		box-shadow: -3px -3px 5px rgba(255,255,255,0.1),3px 3px 5px rgba(0,0,0,0.2),inset 2px 3px 1px rgba(255,255,255,0.3),inset -2px -2px 2px rgba(0,0,0,0.25);
+		background: #f56900;
+		background: -moz-linear-gradient(top, #f56900 41%, #ff7300 56%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(41%,#f56900), color-stop(56%,#ff7300));
+		background: -webkit-linear-gradient(top, #f56900 41%,#ff7300 56%);
+		background: -o-linear-gradient(top, #f56900 41%,#ff7300 56%);
+		background: -ms-linear-gradient(top, #f56900 41%,#ff7300 56%);
+		background: linear-gradient(top, #f56900 41%,#ff7300 56%);
+		text-decoration: none;
+		display: inline-block;
+	}
+	.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default .ui-state-hover {
+border: none/*{borderColorDefault}*/;background: none;
+</style>
+</head>
+
+<body>
+<h1>Modal</h1>
+<p>Modal window pops up on load unless a cookie is set for user indicating not to show next time.</p>
+</body>
+</html>
+<script type="text/javascript">
+	launchLimitedFeaturesDialog();
+</script>

@@ -1,0 +1,160 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Page Title</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <link rel="stylesheet" href="css/themes/ttocalc.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+    <style type="text/css">
+		form {
+			margin: 20px 0;
+		}
+    	label.error {
+			color: red;
+			font-size: 0.8em;
+		}
+		.ui-listview {
+			margin: 15px;
+		}
+		label.ui-input-text {
+			display: inline-block;
+			width: 40%;
+			font-size: 0.8em;
+			font-weight: bold;
+			float: left;
+			line-height: 3.2em;;
+		}
+		div.ui-input-has-clear {
+			padding: 0 0 0 .4em;
+			display: inline-block;
+			width: 55%;
+			float: left;
+		}
+		.clear {
+			clear: both;
+			height: 0;
+		}
+		.ui-li-static.ui-li {
+			padding: 5px 10px;	
+		}
+		input[type="tel"] {
+			font-size: 0.8em;	
+		}
+		.ui-header .ui-title {
+			margin-left: 0;
+			margin-right: 0;
+			overflow: hidden;	
+		}
+		.ui-submit.ui-btn {
+			display: inline-block;
+			width: 60%;
+		}
+		#response-list li.ui-last-child {
+			border-top: none;
+		}
+    </style>
+</head>
+
+<body>
+    <div id="calculator" data-role="page" data-theme="c">
+        <div data-role="header" data-theme="c">
+            <h1>Transit Time Cost Calulator</h1>
+        </div>
+        
+        <form action="#" method="post" id="calculator">
+        	<ul data-role="listview" data-inset="true" data-theme="d">
+                <li>
+                    <label for="cargo">Value of Cargo</label>
+                    <input type="tel" data-clear-btn="true" name="cargo" id="cargo" placeholder="Enter $ Amount" data-theme="z"/>
+                    <div class="clear">&nbsp;</div>
+                </li>
+                <li>
+                    <label for="capital">Cost of Capital</label>
+                    <input type="tel" data-clear-btn="true" name="capital" id="capital" placeholder="Enter average % (10%)" data-theme="z"/>
+                    <div class="clear">&nbsp;</div>
+                </li>
+            </ul>
+            
+                <div style="text-align: center;">
+                    <input id="submit" type="submit" value="Calculate" style="float: right;" data-icon="arrow-r" data-iconpos="right" />
+                </div>
+        </form>
+        
+        <div data-role="footer" data-position="fixed" data-theme="c">
+            <p style="text-align: center;font-size: smaller;">&copy; 2013 Schneider National</p>
+        </div>
+    </div>
+    
+	<div id="response" data-role="page" data-theme="c">
+        <div data-role="header" data-theme="c">
+            <h1>Transit Time Cost Calulator</h1>
+        </div>
+        
+        <ul id="response-list" data-role="listview" data-inset="true" data-theme="d">
+            <li>
+                <h2 style="color: #aaa;">Your transit time cost is:</h2>
+                <div class="clear">&nbsp;</div>
+            </li>
+            <li>
+                <p id="result" style="text-align: center; font-size: 1em; font-weight: bold; margin: 10px;">&nbsp;</p>
+        	</li>
+        </ul>
+        <a href="#calculator" data-role="button" data-inline="true" data-mini="true" data-theme="a" style="margin-left: 15px;">Back</a>
+        
+        <div data-role="footer" data-position="fixed" data-theme="c">
+            <p style="text-align: center;font-size: smaller;">&copy; 2013 Schneider National</p>
+        </div>
+    </div>
+    
+</body>
+</html>
+    
+
+<script type="text/javascript">
+	$(document).ready(function(e) {
+		$("form#calculator").validate({
+        rules: {
+            cargo: {
+                required: true,
+				number: true 
+            },
+            capital: {
+                required: true,
+				number: true,
+            }
+        }
+    });
+		
+	$("form#calculator").bind("submit", function(e) {
+		
+		var cargo = $("input#cargo").val();
+		var capital = $("input#capital").val();
+		var days = 365;
+		var result = $("p#result");
+		var resultValue = "";
+		if (cargo.length > 0 && capital.length > 0 && days > 0) {
+			resultValue = (parseFloat(cargo.replace(/,/g, "")) * parseFloat((capital/100)))/days;
+			result.empty();
+			result.append("$" + resultValue.formatMoney(2, '.', ',')).addClass("bordered");
+			$.mobile.changePage( "#response", { transition: "pop", changeHash: false });
+		} else {
+			result.empty();
+		}
+		return false;
+	});
+	
+	Number.prototype.formatMoney = function(c, d, t){
+	var n = this, 
+		c = isNaN(c = Math.abs(c)) ? 2 : c, 
+		d = d == undefined ? "." : d, 
+		t = t == undefined ? "," : t, 
+		s = n < 0 ? "-" : "", 
+		i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+		j = (j = i.length) > 3 ? j % 3 : 0;
+	   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+	};
+});
+</script>

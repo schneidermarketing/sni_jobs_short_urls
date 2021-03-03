@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="Mon, 21 Jan 2002 00:00:00 GMT"/> 
+<meta http-equiv="cache-control" content="no-store" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schneider National - CrossRoads Login</title>
+<link href="http://code.jquery.com/ui/1.10.3/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="css/page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="script/page.js"></script>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+	<div id="toolbar-wrapper">
+        <div id="font-toolbar">
+            <!--<a href="#" class="increase-font">+</a><a href="#" class="reset-font">x</a><a href="#" class="decrease-font">-</a>-->
+        </div>
+        <div class="clear"></div>
+    </div><!-- END toolbar-wrapper -->
+	<div class="center">
+    <h1 id="cr-logo"><a href="login.html" title="Schneider National - CrossRoads">Schneider National, Inc. - CrossRoads</a></h1>
+        
+      <p style="max-width: 600px;margin: 0 auto;">CrossRoads is a community for Schneider National, Inc. associates, their families and independent contractors to access applications, share information, participate in discussions and more.</p>
+      <div id='enable-js-message'><p style="color:red;">** Please enable JavaScript to login to CrossRoads Applications **</p></div>
+      <h3 id='select-heading' class="orange">I am a:</h3>
+      <div class="select-container">
+      <select id="associate-type-select" name="associate-type-select">
+      	<option value="">Select One...</option>
+        <option value="cd">Driver Associate</option>
+        <option value="ic">Independent Contractor</option>
+        <option value="osw">Office, Shop and Warehouse</option>
+        <option value="student">Student Driver</option>
+      </select>
+      </div>
+      <div class="select-container">
+      <label for="ic-type-option">Contractor Type:</label><br />
+      <select id="ic-type-option" name="ic-type-option" style="width: 193px;">
+      	<option value="">Select One...</option>
+        <option value="mileage">Mileage/Legacy</option>
+        <option value="percentage">Percentage/Choice</option>
+      </select>
+      </div>
+      
+      <div id="type-info">
+      	<div id="cd">
+            <p>Company Driver Text</p>
+        </div>
+        <div id="ic-mileage">
+            <p>IC Mileage Text</p>
+        </div>
+        <div id="ic-percentage">
+            <p>IC Percentage Text</p>
+        </div>
+        <div id="osw">
+            <p>Office, Shop and Warehouse Text</p>
+        </div>
+        <div id="student">
+            <p>Student Driver Text</p>
+        </div>
+        
+        <form name ="standardform" id="standardform" method="POST" action="/dummy">
+        	<hr />
+        	<h3 style="text-align: left;" class="orange">Please login:</h3>
+            <div class="clear txt-box">
+                <label for="username" class="OraFieldText" data-role="none">Username</label>
+                <input type="text" size="30" maxlength="50" id="username" name="username" data-role="none"/>
+            </div>
+            <div class="clear txt-box">
+                <label for="password" class="OraFieldText" data-role="none">Password</label>
+                <input type="password" size="30" maxlength="50" id="password" name="password" data-role="none"/>
+            </div>
+            <div class="clear txt-box">
+                <input type="checkbox" id="mobileOption" name="mobileOption" checked="checked" />
+                <label class="checkLabel" for="mobileOption">Login to Mobile Work Assignments</label>
+                <label class="checkLabel small" for="mobileOptionLabel" style="text-align:center;">(uncheck for full desktop application)</label>
+            </div>
+            <div id="submit-button" class="clear">
+                <a class="btn-orange-submit" href="#" onclick="document.getElementById('standardform').submit();" data-role="none">Log On</a>
+            </div>
+        </form>
+
+      </div>
+    </div><!-- close div.center -->
+    <div id="footer">
+    <ul>
+        <li><a href="tech-support.html">Technical Support</a>
+<!--            <ul>
+                <li>Having technical issues with CrossRoads? Find help here.</li>
+            </ul>
+-->        <li><a href="terms-of-usage.html"q>Terms of Usage</a></li>
+        <li><a href="system-software-requirements.html">System and Software Requirements</a>
+<!--            <ul>
+                <li>The equipment and software you need to access CrossRoads.</li>
+            </ul>
+-->        </li>
+        <li><a href="faq.html">Frequently Asked Questions</a></li>
+    </ul>
+    <p id="footer-logo"><a href="http://schneider.com" title="Schneider National - Main Site">Schneider National, Inc. - CrossRoads</a></p>
+    </div>
+</body>
+</html>

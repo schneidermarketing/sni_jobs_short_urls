@@ -1,0 +1,391 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/login.css" media="screen" />
+ 
+<META Http-equiv="Cache-Control" Content="no-cache"/>
+<META Http-equiv="Pragma" Content="no-cache"/>
+<META Http-equiv="Expires" Content="Mon, 21 Jan 2002 00:00:00 GMT"/> 
+<META http-equiv="cache-control" content="no-store">
+ 
+<script type="text/javascript" language="javascript"> 
+ 
+/*var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+ 
+try {
+var pageTracker = _gat._getTracker("UA-620055-6");
+pageTracker._trackPageview();
+} 
+catch(err) {}
+*/	
+function callAvaya(){
+	try {
+		var ssobj = new ActiveXObject("AvAgentStartup.clsAvayaAgentStartup");
+	} catch(e) {
+		return "Error getting activex object";
+	}
+	ssobj.Startup(getURLParam("ct_orig_uri"),"","");
+	return "success";
+}
+ 
+function getmyAgent() {
+	var detect = navigator.userAgent.toLowerCase();
+	if ((detect.indexOf("msie") !=-1) && (detect.indexOf("schneider national") !=-1)) {
+		location.href='https://webaccess.schneiderlogistics.com/world';
+	} else {
+		location.href='https://webaccess.schneiderlogistics.com/home';
+	}
+}
+ 
+function popsWindow2(url, win_name, height, width, left, top)
+	{
+	var popsWin2 = window.open( url , win_name, 'height=' + height + ', width=' + width + ', location=no, status=no, menubar=no, toolbar=no,  scrollbars=yes, resizable=yes, left=' + left + ', top=' + top +'' );
+	popsWin2.focus();
+		}
+ 
+function EBSPopup() 
+{
+	testwindow = window.open("https://ebs1.schneider.com", "ebs", "location=1,status=1,scrollbars=1,width=800,height=600"); 
+	testwindow.focus();
+ 
+}
+ 
+ 
+function switchTabsDRV() 
+{
+var ActivTab = document.getElementById('cdriver');
+ActivTab.style.display = "block";
+ActivTab = document.getElementById('icdriver');
+ActivTab.style.display = "none";
+ActivTab = document.getElementById('ofcw');
+ActivTab.style.display = "none";
+ActivTab = document.getElementById('student');
+ActivTab.style.display = "none";
+ActivTab = document.getElementById('drvTab');
+ActivTab.className = "activeTab";
+ActivTab = document.getElementById('icTab');
+ActivTab.className = "deactiveTab";
+ActivTab = document.getElementById('ofcwTab');
+ActivTab.className = "deactiveTab";
+ActivTab = document.getElementById('stuTab');
+ActivTab.className = "deactiveTab";
+}
+ 
+function switchTabsIC() 
+{
+var ActivTab2 = document.getElementById('icdriver');
+ActivTab2.style.display = "block";
+ActivTab2 = document.getElementById('cdriver');
+ActivTab2.style.display = "none";
+ActivTab2 = document.getElementById('ofcw');
+ActivTab2.style.display = "none";
+ActivTab2 = document.getElementById('student');
+ActivTab2.style.display = "none";
+ActivTab2 = document.getElementById('icTab');
+ActivTab2.className = "activeTab";
+ActivTab2 = document.getElementById('drvTab');
+ActivTab2.className = "deactiveTab";
+ActivTab2 = document.getElementById('ofcwTab');
+ActivTab2.className = "deactiveTab";
+ActivTab2 = document.getElementById('stuTab');
+ActivTab2.className = "deactiveTab";
+}
+ 
+function switchTabsOFCW() 
+{
+var ActivTab3 = document.getElementById('ofcw');
+ActivTab3.style.display = "block";
+ActivTab3 = document.getElementById('icdriver');
+ActivTab3.style.display = "none";
+ActivTab3 = document.getElementById('cdriver');
+ActivTab3.style.display = "none";
+ActivTab3 = document.getElementById('student');
+ActivTab3.style.display = "none";
+ActivTab3 = document.getElementById('ofcwTab');
+ActivTab3.className = "activeTab";
+ActivTab3 = document.getElementById('drvTab');
+ActivTab3.className = "deactiveTab";
+ActivTab3 = document.getElementById('icTab');
+ActivTab3.className = "deactiveTab";
+ActivTab3 = document.getElementById('stuTab');
+ActivTab3.className = "deactiveTab";
+}
+ 
+function switchTabsSTU() {
+var ActivTab4 = document.getElementById('student');
+ActivTab4.style.display = "block";
+ActivTab4 = document.getElementById('icdriver');
+ActivTab4.style.display = "none";
+ActivTab4 = document.getElementById('ofcw');
+ActivTab4.style.display = "none";
+ActivTab4 = document.getElementById('cdriver');
+ActivTab4.style.display = "none";
+ActivTab4 = document.getElementById('stuTab');
+ActivTab4.className = "activeTab";
+ActivTab4 = document.getElementById('drvTab');
+ActivTab4.className = "deactiveTab";
+ActivTab4 = document.getElementById('icTab');
+ActivTab4.className = "deactiveTab";
+ActivTab4 = document.getElementById('ofcwTab');
+ActivTab4.className = "deactiveTab";
+}
+ 
+function submitDriverLogin()
+{
+	if (""==document.driverLoginForm.username.value) 
+	{ 
+		alert("Please enter your user id.");
+		document.driverLoginForm.username.focus();
+		return false; 
+	} 
+ 
+	if(""==document.driverLoginForm.password.value) 
+	{ 
+		alert("Please enter your password."); 
+		document.driverLoginForm.password.focus();
+		return false; 
+	} 
+					
+	return true;
+}
+ 
+function submitSPLogin()
+{
+	if (""==document.spLoginForm.username.value) 
+	{ 
+		alert("Please enter your user id.");
+		document.spLoginForm.username.focus();
+		return false; 
+	} 
+ 
+	if(""==document.spLoginForm.password.value) 
+	{ 
+		alert("Please enter your password."); 
+		document.spLoginForm.password.focus();
+		return false; 
+	} 
+ 
+	document.spLoginForm.action="https://wcs3.schneider.com/snib/login/ui/customerspservlet";				
+	return true;
+}
+ 
+ 
+function queryString(parameter) { 
+var loc = location.search.substring(1, location.search.length);
+var param_value = false;
+var params = loc.split("&");
+for (i=0; i<params.length;i++) {
+	param_name = params[i].substring(0,params[i].indexOf('='));
+	if (param_name == parameter) {
+		param_value = params[i].substring(params[i].indexOf('=')+1)
+	}
+}
+	if (param_value) {
+		return param_value;
+	} else {
+		return false; 
+	}
+}
+ 
+function load()
+{
+	var page=queryString('page');
+	switch (page)
+	{
+		case 'DRV':
+			switchTabsDRV();
+			break;
+		case 'IC':
+			switchTabsIC();
+			break;
+	}
+}
+ 
+ 
+				
+ 
+</script>
+ 
+</head>
+<body onLoad="load()">
+ 
+<table bgcolor="#ffffff" padding="10">
+	<tr>
+		<td colspan="2"><img src="images/crossroads/schneider_logo.gif" alt="Schneider National, Inc." width="198" height="40" border="0" align="left" />
+ 
+		</td>
+	</tr>
+	<tr style="font-size: 12px; font: Arial, sans-serif;">
+		<td width="320" valign="top"><h1>Welcome to Schneider CrossRoads</h1>
+	<p>Schneider CrossRoads is a community for Schneider Associates, their families and Independent Contractors to share information, discussions, recognition, stories and more.</p>
+	<ul>
+		
+		<li><a href="https://content.schneider.com/Support/TS/index.htm">Technical Support</a><br>Having technical issues with CrossRoads? Find help here.</li>
+		<li><a href="https://content.schneider.com/Support/TOU/index.htm">Terms of Usage</a></li>
+		<li><a href="https://content.schneider.com/Support/SSR/index.htm">System and Software Requirements</a><br>The equipment and software you need to access CrossRoads.</li>
+		<li><a href="https://content.schneider.com/Support/FAQ/index.htm">Frequently Asked Questions</a></li>
+	</ul>
+	<br clear="all">
+	</td>
+	<td width="550" valign="top" cellpadding="10">
+ 
+<div class="emptyTab" style="width:10px;">&nbsp;</div>
+<div class="activeTab" id="drvTab" overflow: auto;><a onClick="switchTabsDRV();">Driver<br>Associates</a></div>
+<div class="emptyTab" style="width:10px;">&nbsp;</div>
+<div class="deactiveTab" id="icTab" overflow: auto;><a onClick="switchTabsIC();">Independent<br>Contractors</a> </div>
+<div class="emptyTab" style="width:10px;">&nbsp;</div>
+<div class="deactiveTab" id="ofcwTab" overflow: auto;><a onClick="switchTabsOFCW();">Office, Shop<br>and Warehouse</a> </div>
+<div class="emptyTab" style="width:10px;">&nbsp;</div>
+<div class="deactiveTab" id="stuTab" overflow: auto;><a onClick="switchTabsSTU();">Student<br>Drivers</a> </div>
+ 
+<div class="tabContent" id="cdriver" style="display:block;">
+  <table width="550" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px; font: Arial, sans-serif;">
+    <tr>
+      <td valign="top">
+				<br>
+ 
+		<br><br>
+		
+		Drivers, Click <a href="https://wcs2.schneider.com/webcenter/spaces/Driver_Community/page/Home">here</a> to access Crossroads.
+ 
+		<br>
+		<br>
+ 
+		<table>
+		<tr>
+			<td>
+				<a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/ForgetPassword.do?returnURL=https://crossroads.schneider.com/index.html?page=DRV','pwd_popup','400','500','20','40');">Forgot your password?</a>
+			</td>
+			<td width=25px></td>
+			<td>
+				<a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/Enrollment.do?returnURL=https://crossroads.schneider.com/index.html?page=DRV','pwd_popup','400','500','20','40');">Change your password?</a>
+			</td>
+		</tr>
+		</table>
+ 
+<br><br>
+ 
+      	Driver login for accessing pay, benefits, training, driver handbook, safety tips and more.
+<br><br>
+      	<span class="smalltype">Having trouble logging in? From the United States call 1-800-558-7010 press “2” and then “2” to reach Schneider’s IT Support Center. 24 hours a day, 7 days a week. 
+</span> </b>	<br><img src="/images/null.gif" width="1" height="60" border="0"><br>
+</td>
+    </tr>
+      </table>
+ </div> 
+ 
+ 
+<div class="tabContent" id="ofcw" style="display:none;">
+  <table width="550" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px; font: Arial, sans-serif;">
+    <tr>
+      <td valign="top">
+      <center><br><b><a href="javascript:getmyAgent();">Sign-in</a> to your CrossRoads Account</b>
+      <br><br>
+      Office, Shop and Warehouse Associates access your pay, benefits, Transit and more.
+       <br>&nbsp;<br>
+      <a href="https://mail.schneider.com">Outlook Access</a><img src="/images/null.gif" width="100" height="2" border="0">&nbsp;<a href="https://cwa.schneider.com">Communicator (chat)</a><br><br>If you need assistance, please call 1-800-558-6767, Ext. 592-4277 for technical support. 
+      </center>
+      <br><img src="/images/null.gif" width="1" height="10" border="0">
+     <span class="smalltype">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+	<br><img src="/images/null.gif" width="1" height="10" border="0">
+   </td>      	
+    </tr>
+      </table>
+ </div> 
+ 
+ 
+<div class="tabContent" id="icdriver" style="display:none;">   
+	<table width="550" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px; font: Arial, sans-serif;">      
+		<tr>     
+			<td valign=top>    	
+				<table border=0 cellspacing=0 cellpadding=20> 		
+					<tr> 			
+						<td valign="top">
+ 
+						<FORM name=spLoginForm METHOD=POST autocomplete="off" style="display: inline;" onSubmit="return submitSPLogin();">
+		  				<table border=0 cellspacing=0 cellpadding=5>
+		 					<tr> 						
+								<td valign=top align=left class="secheader">Contractor ID:</td> 						
+								<td valign=bottom align=left><input type="text" name="username" value="" size="12"></td> 					
+							</tr> 					
+							<tr> 						
+								<td valign=top align=left class="secheader">Password:</td> 						
+								<td valign=bottom align=left><input type="password" name="password" value="" size="12"></td> 					
+							</tr> 					
+							<tr> 						
+								<td valign=top align="left" colspan=2> 							
+									<br clear="all"> 							
+									<input type="image" src="/images/login2_butt.jpg"> 						
+								</td> 					
+							</tr> 					
+							<tr> 						
+								<td valign=top align="center" colspan=2> 						
+									<br clear="all">   						
+									<table> 						
+										<tr> 							
+											<td> 								
+												<a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/ForgetPassword.do?returnURL=https://crossroads.schneider.com/index.html?page=IC','pwd_popup','400','500','20','40');">Forgot your password?</a> 							
+											</td> 							
+											<td width=10px></td> 							
+											<td> 								
+												<a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/Enrollment.do?returnURL=https://crossroads.schneider.com/index.html?page=IC','pwd_popup','400','500','20','40');">Change your password?</a> 							
+											</td> 						
+										</tr> 
+ 
+									</table>
+ 
+									<table>
+										<tr>
+											<td><br><br><span style="font-size:11px; font-family: arial,verdana,sans-serif; ">Need technical assistance? Call 1-800-558-7010, press “2” and then “2” for the Support Center.  <br>&nbsp;<br> For pay/settlement questions, contact your ICA/ICR. (We do not have access to that information.)</span> </td>
+										</tr>
+									</table>
+ 
+										
+									    						
+								</td> 					
+							</tr>  			 				
+						</table> 			 				
+						</form>              	
+						</td>         	
+					</tr>       	
+				</table>         
+			</td>     
+			
+		</tr>        
+		  
+	</table>      
+</div>
+ 
+<div class="tabContent" id="student" style="display:none;">
+  <table width="550" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px; font: Arial, sans-serif;">
+ 
+    <tr>
+ 
+   <td valign=top>
+   	<table border=0 cellspacing=0 cellpadding=20>
+		<tr style="font-size: 12px; font: Arial, sans-serif;">
+			<td valign="top">
+ 
+				Click <a href="javaScript:EBSPopup();">here</a> to launch EBS.	
+ 
+            		</td>
+ 
+       		</tr>
+ 
+     	</table>
+    
+   </td>
+ 
+ 
+    </tr>
+ 
+  </table>
+</div>
+ 
+ 
+ 
+ 
+ 
+	</body>
+	</html>
+

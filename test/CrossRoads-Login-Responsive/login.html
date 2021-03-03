@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Schneider CrossRoads</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="css/res-styles.css">
+  <link rel="stylesheet" type="text/css" href="css/page.css"/>
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie-tabs.css">
+  <![endif]-->
+  <script src="scripts/login.js"></script>
+  <script src="scripts/page.js"></script>
+  </head>
+
+  <body>
+<div id="wrapper">
+    <div class="col span_1_of_2 content">
+    	<img id="logo" src="http://crossroads.schneider.com/images/crossroads/schneider_logo.gif" alt="Schneider National, Inc." width="198" height="40" /><br />
+        <h1 id="title">Welcome to Schneider <br />CrossRoads</h1>
+        <p>CrossRoads is a community for Schneider National, Inc. associates, their families and independent contractors to access applications, share information, participate in discussions and more.</p>
+    </div>
+    <div class="col span_2_of_2">
+        <ul id="nav">
+            <li><a class="tab" href="#">Driver <br />
+              Associates</a>
+            <section>
+            	<div class="col span_2_of_2">
+                	<h3 class="orange plus-icon"><img src="images/crossroads/desktop-icon.jpg" width="16" height="16" alt="Desktop Icon"> <a href="#" style="display: inline;">Full-Site</a></h3>
+                    <p>Access to the Driver Portal to view pay, benefits, training, driver handbook, safety tips and more. <br />Click <a href="#">here</a> to enter.</p>
+                    <h3 class="orange plus-icon"><img src="images/crossroads/mobile-icon.jpg" width="16" height="16" alt="Mobile Icon"> <a href="#" style="display: inline;">Mobile Application</a></h3>
+                    <p>Access the Work Assignment application on your smart phone or tablet. <br />Click <a href="#">here</a> to enter.</p>
+                </div>
+                <div class="col span_1_of_2">
+                	<p class="small"><strong>Having trouble logging in?</strong> <br />From the United States <br />call 1-800-558-7010 <br />press &quot;2&quot; and then &quot;2&quot; to reach Schneider's IT Support Center. 24 hours a day, 7 days a week.</p>
+                </div>
+                <div class="clear">&nbsp;</div>
+            </section>
+          </li>
+            <li><a class="tab" href="#">Independent <br />
+              Contractors</a>
+            <section>
+            	<div class="col span_2_of_2">
+                	<h3 class="blue plus-icon"><img src="images/crossroads/desktop-icon.jpg" width="16" height="16" alt="Desktop Icon"> Full-Site</h3>
+                    <form id="icForm" name="spLoginForm" method="POST" autocomplete="off" style="display: inline;" onsubmit="return submitSPLogin();">
+                        <label for="username">Contractor ID:</label>
+                        <input type="text" name="username" value="" size="12">
+                        <div class="clear" style="height: 4px;"></div>
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" value="" size="12">
+                        <div class="clear" style="height: 4px;"></div>
+                        <input type="image" src="http://crossroads.schneider.com/images/login2_butt.jpg">
+                        <div class="clear" style="height: 20px;"></div>
+                        <small><a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/ForgetPassword.do?returnURL=https://crossroads.schneider.com/index.html?page=IC','pwd_popup','400','500','20','40');">Forgot password?</a> | <a href="javaScript:popsWindow2('https://im1.schneider.com/passwdapp/Enrollment.do?returnURL=https://crossroads.schneider.com/index.html?page=IC','pwd_popup','400','500','20','40');">Change password?</a></small>
+                        <div class="clear" style="height: 20px;"></div>
+                    </form>
+                    <h3 class="orange plus-icon"><img src="images/crossroads/mobile-icon.jpg" width="16" height="16" alt="Mobile Icon"> <a href="#" style="display: inline;">Mobile Application</a></h3>
+                    <p>Access the Work Assignment application on your smart phone or tablet. <br />Click <a href="#">here</a> to enter.</p>
+                </div>
+                <div class="col span_1_of_2">
+                	<p class="small"><strong>Having trouble logging in?</strong> <br />From the United States <br />call 1-800-558-7010 <br />press &quot;2&quot; and then &quot;2&quot; to reach Schneider's IT Support Center. 24 hours a day, 7 days a week.</p>
+                    <p class="small"><strong>Pay/Settlement questions</strong> <br />Contact your ICA/ICR. <br />(We do not have access to that information.)</p>
+                </div>
+            </section>
+          </li>
+            <li><a class="tab" href="#">Office, Shop <br />
+              and Warehouse</a>
+            <section>
+                <div class="col span_2_of_2">
+                <h3 class="blue">Select where to go:</h3>
+                <p><a href="javascript:getmyAgent();">Sign-in</a> to your CrossRoads Account</p>
+                <p>Office, Shop and Warehouse Associates access your pay, benefits, Transit and more.</p>
+                <p><a href="https://mail.schneider.com">Outlook Access</a> | <a href="https://cwa.schneider.com">Communicator (chat)</a></p>
+                <p>If you need assistance, please call 1-800-558-6767, Ext. 592-4277 for technical support.</p>
+                </div>
+            </section>
+          </li>
+            <li><a class="tab" href="#">Student <br />
+              Drivers</a>
+            <section>
+                <div class="col span_2_of_2">
+                <h3 class="blue">Student Driver Access</h3>
+                <p>Click <a href="javaScript:EBSPopup();">here</a> to launch EBS.</p>
+                </div>
+            </section>
+          </li>
+        </ul>
+        <hr class="clear footer" />
+        <ul class="footer">
+            <li><a href="tech-support.html">Technical Support</a>
+            <li><a href="terms-of-usage.html"q>Terms of Usage</a></li>
+            <li><a href="system-software-requirements.html">System and Software Requirements</a>
+            </li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    <div class="clear">&nbsp;</div>
+</div><!-- Close Wrapper -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		pageParams();
+	});
+</script>
+</body>
+</html>

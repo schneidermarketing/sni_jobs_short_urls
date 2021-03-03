@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "CD-Work-Assignments"
+AuthUserFile "/home/snmarket/.htpasswds/public_html/CD-Work-Assignments/passwd"
+require valid-user

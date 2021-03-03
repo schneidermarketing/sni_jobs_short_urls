@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />	
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=8">
+        <title>Schneider National - Login</title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
+        <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css"/>
+        <link rel="stylesheet" href="css/jqm-themes/Schneider.css"/>
+        <link rel="stylesheet" href="css/page.css"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript" src="Scripts/custom.js"></script>
+    </head>
+
+    <body style="background-color: #fff;">
+        <!-- Non-mobile form -->
+        <div id="standard">
+            <h1 class="OraHeaderSub">Schneider National Sign-On</h1>
+
+            <p class="OraInstructionText"><strong>Enter your Username and password to sign in.</strong></p>
+
+            <form id="standardform" method="POST" action="/dummy">
+                <div class="clear txt-box">
+                    <label for="username" class="OraFieldText" data-role="none">Username</label>
+                    <input type="text" size="30" maxlength="50" id="username" name="username" data-role="none">
+                </div>
+                <div class="clear txt-box">
+                    <label for="password" class="OraFieldText" data-role="none">Password</label>
+                    <input type="password" size="30" maxlength="50" id="password" name="password" data-role="none">
+                </div>
+                <div id="submit-button" class="clear">
+                    <input type="submit" value="Log On" data-role="none"/>
+                </div>
+            </form>
+        
+            <div class="copyright">
+                <p class="OraCopyright"><strong>WARNING!</strong> This system and its contents are the confidential and proprietary information and property of Schneider National, Inc. and its subsidiaries.</p>
+                <p class="OraCopyright">Unauthorized use or misuse of this system and its contents is strictly prohibited. Schneider National vigorously protects its rights.</p>
+            </div>
+        </div>
+        
+        <!-- Mobile form -->
+        <div id="mobile" data-role="page" data-title="Schneider National - Driver Login">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <h1>Schneider National</h1>
+            </div> 
+            <div data-role="content">
+                <form id="mobileform" method="POST" action="/dummy">
+                    <ul data-role="listview" data-inset="true" data-theme="d" data-corners="true">
+                        <li><input style="width: 100%;" size="30" maxlength="50" type="text" id="c2" name="username" data-role="none" value="" placeholder='Username'/></li>
+                        <li><input style="width: 100%;" size="30" maxlength="50" type="password" id="c3" name="password" data-role="none" value="" placeholder='Password'/></li>
+                    </ul>
+                    <div id="submit-button" class="clear">
+                        <!-- ONCLICK PROVIDED TO SIMULATE POST -->
+                        <!--<input onclick="window.location.replace('percentage-menu.html')" type="submit" value="Log On" data-role="none" />-->
+                        <a class="btn-orange-submit" href="#" onclick="window.location.replace('percentage-menu.html')" data-role="none">Log On</a>
+                    </div>
+                    <div class="copyright">
+                        <p class="OraCopyright"><strong>WARNING!</strong> This system and its contents are the confidential and proprietary information and property of Schneider National, Inc. and its subsidiaries.</p>
+                        <p class="OraCopyright">Unauthorized use or misuse of this system and its contents is strictly prohibited. Schneider National vigorously protects its rights.</p>
+                    </div>
+                </form>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+                <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                <div class="ui-block-b center" style="width: 2%;">|</div>
+                <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+            </div>
+        </div>
+        <!-- END Mobile form -->
+        
+        <!-- Terms of Use Page -->
+        <div id="terms-of-use" data-role="page" data-title="Schneider National - Terms of Use">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <a href="#" class="ui-btn-left" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Back</a>
+                <h1>Schneider National</h1>
+                <span class="icon-only">
+                    <a href="#mobile" data-role="button" data-icon="home" data-iconpos="notext" data-theme="b" title="Home" class="ui-btn-right">Home</a>
+                </span>
+            </div>
+            <div data-role="content">
+                <p>These are the terms of use.</p>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+                <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                <div class="ui-block-b center" style="width: 2%;">|</div>
+                <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+            </div>
+        </div>
+        
+        <!-- Privacy Policy Page -->
+        <div id="privacy-policy" data-role="page" data-title="Schneider National - Privacy Policy">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <a href="#" class="ui-btn-left" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Back</a>
+                <h1>Schneider National</h1>
+                <span class="icon-only">
+                    <a href="#mobile" data-role="button" data-icon="home" data-iconpos="notext" data-theme="b" title="Home" class="ui-btn-right">Home</a>
+                </span>
+            </div>
+            <div data-role="content">
+                <p>This is the privacy policy.</p>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+                <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                <div class="ui-block-b center" style="width: 2%;">|</div>
+                <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />	
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+	<title>Work Assignments</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/ui-lightness/jquery-ui.css"/>
+    <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.min.css"/>
+    <link rel="stylesheet" href="css/jqm-themes/Schneider.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/custom.js"></script>
+</head>
+    <body>
+        <div id="search-form" data-role="page" data-title="Schneider National - Search Freight">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <h1>Search Freight</h1>
+                <!-- CLICK EVENT THAT HOOKS UP TO LOGOUT SCRIPT -->
+                <!-- ONCLICK PROVIDED TO SIMULATE POST -->
+                <a onclick="window.location.replace('login.html')" href="#" class="ui-btn-right" data-corners="true" data-shadow="false" data-theme="b">Log Off</a>
+            </div> 
+            <div data-role="content">
+                <form id="search" action="#" method="POST">
+                    <ul class="ui-listview" data-role="listview" data-inset="true" data-theme="d" data-corners="true" style="padding-left: 0; list-style-type: none; border-radius: 0.4em; -moz-border-radius: 0.4em; -webkit-border-radius: 0.4em;">
+                        <li class="collabsible-heading" data-role="list-divider" role="heading">Origin</li>
+                        <li>
+                            <input style="width: 100%;" type="text" name="origin-city" id="origin-city" placeholder="Origin City" data-role="none"/>
+                        </li>
+                        <li>
+                            <select name="origin-state" id="origin-state" class="ui-select" data-theme="a">
+                                <option value="">Origin State/Province...</option>
+                                <option value="" style="background-color: #ccc; color: #fff;" disabled="disabled">--US States--</option>
+                                <option Value = "AL">ALABAMA</option>
+                                <option Value = "AK">ALASKA</option>
+                                <option Value = "AZ">ARIZONA</option>
+                                <option Value = "AR">ARKANSAS</option>
+                                <option Value = "CA">CALIFORNIA</option>
+                                <option Value = "CO">COLORADO</option>
+                                <option Value = "CT">CONNECTICUT</option>
+                                <option Value = "DE">DELAWARE</option>
+                                <option Value = "DC">DISTRICT OF COLUMBIA</option>
+                                <option Value = "FL">FLORIDA</option>
+                                <option Value = "GA">GEORGIA</option>
+                                <option Value = "ID">IDAHO</option>
+                                <option Value = "IL">ILLINOIS</option>
+                                <option Value = "IN">INDIANA</option>
+                                <option Value = "IA">IOWA</option>
+                                <option Value = "KS">KANSAS</option>
+                                <option Value = "KY">KENTUCKY</option>
+                                <option Value = "LA">LOUISIANA</option>
+                                <option Value = "ME">MAINE</option>
+                                <option Value = "MD">MARYLAND</option>
+                                <option Value = "MA">MASSACHUSETTS</option>
+                                <option Value = "MI">MICHIGAN</option>
+                                <option Value = "MN">MINNESOTA</option>
+                                <option Value = "MS">MISSISSIPPI</option>
+                                <option Value = "MO">MISSOURI</option>
+                                <option Value = "MT">MONTANA</option>
+                                <option Value = "NE">NEBRASKA</option>
+                                <option Value = "NV">NEVADA</option>
+                                <option Value = "NH">NEW HAMPSHIRE</option>
+                                <option Value = "NJ">NEW JERSEY</option>
+                                <option Value = "NM">NEW MEXICO</option>
+                                <option Value = "NY">NEW YORK</option>
+                                <option Value = "NC">NORTH CAROLINA</option>
+                                <option Value = "ND">NORTH DAKOTA</option>
+                                <option Value = "OH">OHIO</option>
+                                <option Value = "OK">OKLAHOMA</option>
+                                <option Value = "OR">OREGON</option>
+                                <option Value = "PA">PENNSYLVANIA</option>
+                                <option Value = "RI">RHODE ISLAND</option>
+                                <option Value = "SC">SOUTH CAROLINA</option>
+                                <option Value = "SD">SOUTH DAKOTA</option>
+                                <option Value = "TN">TENNESSEE</option>
+                                <option Value = "TX">TEXAS</option>
+                                <option Value = "UT">UTAH</option>
+                                <option Value = "VT">VERMONT</option>
+                                <option Value = "VA">VIRGINIA</option>
+                                <option Value = "WA">WASHINGTON</option>
+                                <option Value = "WV">WEST VIRGINIA</option>
+                                <option Value = "WI">WISCONSIN</option>
+                                <option Value = "WY">WYOMING</option>
+                                <option value="" style="background-color: #ccc; color: #fff;" disabled="disabled">--Canadian Provinces--</option>
+                                <option Value = "AB">ALBERTA</option>
+                                <option Value = "BC">BRITISH COLUMBIA</option>
+                                <option Value = "SK">SASKATCHEWAN</option>
+                                <option Value = "MB">MANITOBA</option>
+                                <option Value = "ON">ONTARIO</option>
+                                <option Value = "QC">QUEBEC</option>
+                                <option Value = "NB">NEW BRUNSWICK</option>
+                                <option Value = "NS">NOVA SCOTIA</option>
+                                <option Value = "NL">NEWFOUNDLAND AND LABRADOR</option>
+                                <option Value = "PE">PRINCE EDWARD ISLAND</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="origin-distance">Radius</label>
+                            <input type="range" name="origin-distance" id="origin-distance" value="50" min="25" max="500" step="25" data-role="" data-highlight="true" data-theme="a"/>
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Distance Units (mi/km)</legend>
+                                <input type="radio" name="origin-distance-radius-units" id="origin-radius-units-mi" value="mi" checked="checked" data-theme="a"/>
+                                <label for="origin-radius-units-mi">mi</label>
+
+                                <input type="radio" name="origin-distance-radius-units" id="origin-radius-units-km" value="km" data-theme="a"/>
+                                <label for="origin-radius-units-km">km</label>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <input style="width: 100%;" id="origin-start-date" name="origin-start-date" type="text" class="datepicker" placeholder="Origin Start Date" data-role="none"/>
+                        </li>
+                        <li>
+                            <input style="width: 100%;" id="origin-end-date" name="origin-end-date" type="text" class="datepicker" placeholder="Origin End Date" data-role="none"/>
+                        </li>
+                        <li class="collabsible-heading" data-role="list-divider" role="heading">Destination</li>
+                        <li>
+                            <input style="width: 100%;" type="text" name="destination-city" id="destination-city" placeholder="Destination City" data-role="none"/>
+                        </li>
+                        <li>
+                            <select name="destination-state" id="destination-state" class="ui-select" data-theme="a">
+                                <option value="">Destination State/Province...</option>
+                                <option value="" style="background-color: #ccc; color: #fff;" disabled="disabled">--US States--</option>
+                                <option Value = "AL">ALABAMA</option>
+                                <option Value = "AK">ALASKA</option>
+                                <option Value = "AZ">ARIZONA</option>
+                                <option Value = "AR">ARKANSAS</option>
+                                <option Value = "CA">CALIFORNIA</option>
+                                <option Value = "CO">COLORADO</option>
+                                <option Value = "CT">CONNECTICUT</option>
+                                <option Value = "DE">DELAWARE</option>
+                                <option Value = "DC">DISTRICT OF COLUMBIA</option>
+                                <option Value = "FL">FLORIDA</option>
+                                <option Value = "GA">GEORGIA</option>
+                                <option Value = "ID">IDAHO</option>
+                                <option Value = "IL">ILLINOIS</option>
+                                <option Value = "IN">INDIANA</option>
+                                <option Value = "IA">IOWA</option>
+                                <option Value = "KS">KANSAS</option>
+                                <option Value = "KY">KENTUCKY</option>
+                                <option Value = "LA">LOUISIANA</option>
+                                <option Value = "ME">MAINE</option>
+                                <option Value = "MD">MARYLAND</option>
+                                <option Value = "MA">MASSACHUSETTS</option>
+                                <option Value = "MI">MICHIGAN</option>
+                                <option Value = "MN">MINNESOTA</option>
+                                <option Value = "MS">MISSISSIPPI</option>
+                                <option Value = "MO">MISSOURI</option>
+                                <option Value = "MT">MONTANA</option>
+                                <option Value = "NE">NEBRASKA</option>
+                                <option Value = "NV">NEVADA</option>
+                                <option Value = "NH">NEW HAMPSHIRE</option>
+                                <option Value = "NJ">NEW JERSEY</option>
+                                <option Value = "NM">NEW MEXICO</option>
+                                <option Value = "NY">NEW YORK</option>
+                                <option Value = "NC">NORTH CAROLINA</option>
+                                <option Value = "ND">NORTH DAKOTA</option>
+                                <option Value = "OH">OHIO</option>
+                                <option Value = "OK">OKLAHOMA</option>
+                                <option Value = "OR">OREGON</option>
+                                <option Value = "PA">PENNSYLVANIA</option>
+                                <option Value = "RI">RHODE ISLAND</option>
+                                <option Value = "SC">SOUTH CAROLINA</option>
+                                <option Value = "SD">SOUTH DAKOTA</option>
+                                <option Value = "TN">TENNESSEE</option>
+                                <option Value = "TX">TEXAS</option>
+                                <option Value = "UT">UTAH</option>
+                                <option Value = "VT">VERMONT</option>
+                                <option Value = "VA">VIRGINIA</option>
+                                <option Value = "WA">WASHINGTON</option>
+                                <option Value = "WV">WEST VIRGINIA</option>
+                                <option Value = "WI">WISCONSIN</option>
+                                <option Value = "WY">WYOMING</option>
+                                <option value="" style="background-color: #ccc; color: #fff;" disabled="disabled">--Canadian Provinces--</option>
+                                <option Value = "AB">ALBERTA</option>
+                                <option Value = "BC">BRITISH COLUMBIA</option>
+                                <option Value = "SK">SASKATCHEWAN</option>
+                                <option Value = "MB">MANITOBA</option>
+                                <option Value = "ON">ONTARIO</option>
+                                <option Value = "QC">QUEBEC</option>
+                                <option Value = "NB">NEW BRUNSWICK</option>
+                                <option Value = "NS">NOVA SCOTIA</option>
+                                <option Value = "NL">NEWFOUNDLAND AND LABRADOR</option>
+                                <option Value = "PE">PRINCE EDWARD ISLAND</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="destination-distance">Radius</label>
+                            <input type="range" name="destination-distance" id="destination-distance" value="50" min="25" max="500" step="25" data-role="" data-highlight="true" data-theme="a"/>
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Distance Units (mi/km)</legend>
+                                <input type="radio" name="destination-radius-units" id="destination-radius-units-mi" value="mi" checked="checked" data-theme="a"/>
+                                <label for="destination-radius-units-mi">mi</label>
+
+                                <input type="radio" name="destination-radius-units" id="destination-radius-units-km" value="km" data-theme="a"/>
+                                <label for="destination-radius-units-km">km</label>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <input style="width: 100%;" id="destination-start-date" name="destination-start-date" type="text" class="datepicker" placeholder="Destination Start Date" data-role="none"/>
+                        </li>
+                        <li>
+                            <input style="width: 100%;" id="destination-end-date" name="destination-end-date" type="text" class="datepicker" placeholder="Destination End Date" data-role="none"/>
+                        </li>
+                    </ul>
+                    <div id="submit-button" class="clear">
+                        <!-- ONCLICK PROVIDED TO SIMULATE POST -->
+                        <input type="reset" value="Clear" data-role="none"/><input onclick="window.location.replace('freight-results.html')" type="submit" value="Search" data-role="none"/>
+                    </div>
+                </form>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+            	<div class="footer-link-wrapper">
+                    <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                    <div class="ui-block-b center" style="width: 2%;">|</div>
+                    <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Terms of Use Page -->
+        <div id="terms-of-use" data-role="page" data-title="Schneider National - Terms of Use">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <a href="#" class="ui-btn-left" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Back</a>
+                <h1>Schneider National</h1>
+            </div>
+            <div data-role="content">
+                <p>These are the terms of use.</p>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+            	<div class="footer-link-wrapper">
+                    <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                    <div class="ui-block-b center" style="width: 2%;">|</div>
+                    <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Privacy Policy Page -->
+        <div id="privacy-policy" data-role="page" data-title="Schneider National - Privacy Policy">
+            <div data-role="header" class="jqm-header" data-theme="a">
+                <a href="#" class="ui-btn-left" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Back</a>
+                <h1>Schneider National</h1>
+            </div>
+            <div data-role="content">
+                <p>This is the privacy policy.</p>
+            </div>
+            <div class="transparent-footer" data-role="footer" data-position="fixed" class="ui-grid-b" data-theme="a">
+                <div class="footer-link-wrapper">
+                    <div class="ui-block-a center" style="width: 48%;"><a href="#privacy-policy">Privacy Policy</a></div>
+                    <div class="ui-block-b center" style="width: 2%;">|</div>
+                    <div class="ui-block-c center" style="width: 48%;"><a href="#terms-of-use">Terms of Use</a></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+	<title>Work Assignments</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <link rel="stylesheet" href="css/themes/Schneider.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/custom.js"></script>
+
+</head>
+    <body>
+        <!-----------------------------------------------------------------------------------------------------------
+            NOTE: the 'data-role="content" section below can be moved to it's own template page. Once there the login
+            script could update an empty '<div id="freight-assignments-list" data-role="page"></div>' on the login Page 
+            with AJAX then navigate to it. This would simpify this template and reuse some of the otherwise repeated
+            template stuff from the login doc. (Let me know if you are interested or have questions about it)
+        ------------------------------------------------------------------------------------------------------------->
+        <div id="pending-work-assignments" data-role="page" data-title="Pending Work Assignments">
+            <div data-role="header" class="jqm-header" data-theme="a" align="left">
+                <span class="icon-only">
+                    <!-- CLICK EVENT THAT RE-RUNS THE QUERY -->
+                    <a href="#" data-role="button" data-icon="refresh" data-iconpos="notext" data-theme="b" title="Refresh" class="ui-btn-left">Refresh</a>
+                </span>
+                <h1>Work Assignments</h1>
+                <!-- CLICK EVENT THAT HOOKS UP TO LOGOUT SCRIPT -->
+                <a href="#" class="ui-btn-right" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Log Off</a>
+            </div>
+
+            <div data-role="navbar">
+                <ul>					
+                    <li class="navigation">
+                        <a class="ui-btn-active ui-state-persist" href="#pending-work-assignments" data-theme="a" style="color: white;">
+                            (3) Pending
+                        </a>
+                    </li>					
+                    <li class="navigation">
+                        <a href="#active-work-assignment" data-theme="a" style="color: white;">
+                            Active
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="content">
+                <!-- START OF ASSIGNMENT -->
+                <ul data-role="listview" data-theme="d" class="ui-listview">
+                    <li data-role="list-divider" role="heading" class="ui-li-has-count">
+                        ST100002698
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span><!-- ADD DYNAMIC COUNT OF STOPS WITHIN THIS SINGLE ASSIGNMENT FROM LOOP BELOW -->
+                    </li>
+                    <!-- START OF A SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT (THE LOOP WITHIN AN ASSIGNMENT FOR STOPS)-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>PICK-UP</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Schneider Yard<br />1234 Schneider Yard Way<br /> Kansas City, MO</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- END OF SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT -->
+                    
+                    <!-- ADDED FOR TEMPLATE CLARITY (NEED TO REMOVE) -->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>DROP-OFF</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Agilent<br />343 California Ave<br /> Santa Clara, CA</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- END ADDED FOR TEMPLATE CLARITY -->
+                    
+                </ul>
+                <!-- END OF ASSIGNMENT -->
+                
+
+                <!-- STUFF UNDER HERE IS JUST REPEATED FOR LAYOUT TESTING (START) -->
+                <ul data-role="listview" data-theme="d" class="ui-listview">
+                    <li data-role="list-divider" role="heading" class="ui-li-has-count">
+                        ST100002698
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span><!-- ADD DYNAMIC COUNT OF STOPS WITHIN THIS SINGLE ASSIGNMENT FROM LOOP BELOW -->
+                    </li>
+                    <!-- START OF A SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT (THE LOOP WITHIN AN ASSIGNMENT FOR STOPS)-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>PICK-UP</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Schneider Yard<br />1234 Schneider Yard Way<br /> Kansas City, MO</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>DROP-OFF</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Agilent<br />343 California Ave<br /> Santa Clara, CA</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul data-role="listview" data-theme="d" class="ui-listview">
+                    <li data-role="list-divider" role="heading" class="ui-li-has-count">
+                        ST100002698
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span><!-- ADD DYNAMIC COUNT OF STOPS WITHIN THIS SINGLE ASSIGNMENT FROM LOOP BELOW -->
+                    </li>
+                    <!-- START OF A SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT (THE LOOP WITHIN AN ASSIGNMENT FOR STOPS)-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>PICK-UP</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Schneider Yard<br />1234 Schneider Yard Way<br /> Kansas City, MO</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>DROP-OFF</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Agilent<br />343 California Ave<br /> Santa Clara, CA</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- STUFF ABOVE HERE IS JUST REPEATED FOR LAYOUT TESTING (END) -->
+                
+
+            </div><!-- CLOSE CONTENT DIV -->
+
+            <!--<div data-role="footer">
+                <h4>&copy; Schneider National, Inc.</h4>
+            </div> CLOSE FOOTER DIV -->
+        </div><!-- CLOSE PAGE DIV -->
+            
+        <div id="active-work-assignment" data-role="page" data-title="Active Work Assignment">
+            <div data-role="header" class="jqm-header" data-theme="a" align="left">
+                <span class="icon-only">
+                    <!-- CLICK EVENT THAT RE-RUNS THE QUERY -->
+                    <a href="#" data-role="button" data-icon="refresh" data-iconpos="notext" data-theme="b" title="Refresh" class="ui-btn-left">Refresh</a>
+                </span>
+                <h1>Active Assignment</h1>
+                <!-- CLICK EVENT THAT HOOKS UP TO LOGOUT SCRIPT -->
+                <a href="#" class="ui-btn-right" data-corners="true" data-shadow="false" data-theme="b" data-rel="back">Log Off</a>
+            </div>
+
+            <div data-role="navbar">
+                <ul>					
+                    <li class="navigation">
+                        <a href="#pending-work-assignments" data-theme="a" style="color: white;">
+                            (3) Pending
+                        </a>
+                    </li>					
+                    <li class="navigation">
+                        <a class="ui-btn-active ui-state-persist" href="#active-work-assignment" data-theme="a" style="color: white;">
+                            Active
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="content">
+                <!-- START OF ASSIGNMENT -->
+                <ul data-role="listview" data-theme="d" class="ui-listview ui-btn-corner-all">
+                    <li data-role="list-divider" role="heading" class="ui-li-has-count">
+                        ST100002698
+                        <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">2</span><!-- ADD DYNAMIC COUNT OF STOPS WITHIN THIS SINGLE ASSIGNMENT FROM LOOP BELOW -->
+                    </li>
+                    <!-- START OF A SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT (THE LOOP WITHIN AN ASSIGNMENT FOR STOPS)-->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>PICK-UP</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Wed, December 25, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Schneider Yard<br />1234 Schneider Yard Way<br /> Kansas City, MO</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- END OF SINGLE PICKUP/DROPOFF IN AN ASSIGNMENT -->
+                    
+                    <!-- ADDED FOR TEMPLATE CLARITY (NEED TO REMOVE) -->
+                    <li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="d">
+                        <div class="ui-li">
+                            <div class="ui-listview">
+                                <p class="orange"><strong>DROP-OFF</strong></p>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>ETA </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>APPT </strong></p>
+                                    <p class="ui-li-desc right">Fri, December 27, 2013 - 16:30</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>LOCATION </strong></p>
+                                    <p class="ui-li-desc right">Agilent<br />343 California Ave<br /> Santa Clara, CA</p>
+                                </div>
+                                <div class="clear">
+                                    <p class="ui-li-desc desc-left"><strong>DISTANCE </strong></p>
+                                    <p class="ui-li-desc right">0.0 mi</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- END ADDED FOR TEMPLATE CLARITY -->
+                </ul>
+                <!-- END OF ASSIGNMENT -->                
+
+            </div><!-- CLOSE CONTENT DIV -->
+
+            <!--<div data-role="footer" data-position="fixed">
+                <h4>&copy; Schneider National, Inc.</h4>
+            </div> CLOSE FOOTER DIV -->
+
+        </div><!-- CLOSE PAGE DIV -->
+
+    </body>
+</html>

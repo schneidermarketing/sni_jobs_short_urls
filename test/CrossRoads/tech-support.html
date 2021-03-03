@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="Mon, 21 Jan 2002 00:00:00 GMT"/> 
+<meta http-equiv="cache-control" content="no-store" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Schneider National - Technical Support</title>
+<link href="http://code.jquery.com/ui/1.10.3/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="css/page.css" rel="stylesheet" type="text/css" />
+<link href="css/tabs.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="script/page.js"></script>
+<script type="text/javascript" src="script/tabs.js"></script>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<style type="text/css" media="screen">
+	/*Styles to include in page.css*/
+</style>
+</head>
+
+<body>
+<div id="toolbar-wrapper">
+        <div id="font-toolbar">
+            <!--<a href="#" class="increase-font">+</a><a href="#" class="reset-font">x</a><a href="#" class="decrease-font">-</a>-->
+        </div>
+    <div class="clear"></div>
+</div><!-- END toolbar-wrapper -->
+	<div id="content-wrapper">
+        <div id="supportHeader">
+            <h1 id="cr-logo"><a href="login.html" title="Schneider National - CrossRoads">Schneider National, Inc. - CrossRoads</a></h1>
+        </div>
+       <div class="section group">
+            <div class="col span_1_of_2">
+                <div id="navigation">
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a class="current-page" href="tech-support.html">Technical Support</a></li>
+                        <li><a href="system-software-requirements.html">System/Software Requirements</a></li>
+                        <li><a href="faq.html">Frequently Asked Questions</a></li>
+                        <li><a href="terms-of-usage.html">Terms of Usage</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col span_2_of_2">
+                <div id="supportContent">
+                <h2>Technical Support</h2>
+					<div id="module-tabs">
+                        <div class="tabbed_area tabbed-no-script">
+                            <div id="lp-tab-wrapper" class="hidden">
+                            
+                                <ul class="lp-tabs">
+                                <!-- Start Single tab -->
+                                    <li title="Company Drivers" class="lp-tab">Company Drivers<span>&nbsp;</span></li>
+                                <!-- End Single tab -->
+                                	<li title="Independant Contractors" class="lp-tab">Independant Contractors<span>&nbsp;</span></li>
+                                    <li title="Students" class="lp-tab">Students<span>&nbsp;</span></li>
+                                    <li title="Office Shop and Warehouse" class="lp-tab">Office, Shop &amp; Warehouse<span>&nbsp;</span></li>
+                                </ul>
+                            </div>
+                            <div id="accordian" class="">
+                            <!-- Start Single Tab Content -->
+                                <div id="Company-Drivers" data="Company Drivers" class="lp-tabcontent padit">
+                                <!-- Also Accordian Link -->
+                                    <h4>Company Drivers Support</h4>
+                                    <div>
+                                    <!-- Tab Content -->
+                                    <h3>Call Us:</h3>
+                                    <p>From the United States call 1-800-558-7010 press "2" and then "2" to reach Schneider's IT Support Center, <b>24 hours a day, 7 days a week.</b></p>
+<!-- IMPORTANT NOTES: 
+
+(1) Include 'validateform="1"' in the '<form>' HTML tag in order to enable 
+    javascript processing of the form
+(2) Do not remove the tag with the 'ismsgfield="1"' attribute as this is used 
+    as the region for displaying an error message.  Also, the tag MUST be 
+    located within the '<form>' and '</form>' tags
+(3) The 'submit' button MUST be defined with a type of 'button' instead of 
+    'submit' as the form should not be submitted in case of an error.  
+    
+-->
+                                        <h3>Email Us:</h3>
+                                        <p class="padded">You may also request support using the following support request form which will be sent to the appropriate support team when submitted.</p>
+                                        <p class="padded">Please complete the information on the form and include a detailed message.&nbsp; After completing the form, click the Submit button.&nbsp; Fields marked with an asterisk (*) are required.</p>
+                                        <p>
+                                        
+                                    <form action="/cgi-bin/formProcessor8.cgi" method="post" validateform="1" id="quzGFhTjwtNNhje">
+                                        <p class="padded errorFlag" ismsgfield="1">&nbsp;</p>
+<!--
+Note that the following fields are required by the mailer form processor.  Do NOT change/remove 'id' values.
+-->
+                                        <input type="hidden" name="print_blank_fields" value="0">
+                                        <input type="hidden" name="send_email" value="1">
+                                        <input type="hidden" name="email_subject" value="Crossroads - Technical Support - Company Drivers">
+                                        <input type="hidden" name="recipients" value="CrossRoads@schneider.com">
+                                        <input type="hidden" name="default_email" value="webadmin@schneider.com">
+                                        <input type="hidden" name="required" value="1">
+                                        <input type="hidden" name="required_fields" value="topic|driverName|driverNumber|comments">
+                                        <input type="hidden" name="form_fields_to_email" value="driverName|topic|driverNumber|contactMethod|emailAddress|phoneNumber|comments">
+                                        <input type="hidden" name="redirect_url" value="/Support/TS/cdreply">
+<!--The following fields are specific to the form being displayed.
+
+IMPORTANT NOTES:
+
+(1) Do not include the beginning and ending 'form' tags.
+
+(2) Do not include tags for the 'submit' and 'reset' buttons.
+
+(3) Surround the descriptive text of each field with a '<p><label for="">' tag
+where the 'for' value has the same value as the 'id' value of the associated field.  For example, if
+the 'id' value of the 'Driver Name' field is "driverName", then the 'label' tag should be defined
+as follows:
+<p><label for="driverName"><sup>*</sup>Driver Name</label></p>
+
+(4) Since Site Studio Contributor adds additional '<p>...</p>' that interferes with the controlled vertical
+spacing between the labels and fields, be aware that all margins and padding has been suppressed (via
+CSS) on the 'p' element.  Use the "padded" class with the 'p' element to add padding.
+
+(5) Surround each field with the '<p class="padded">' ... '</p>' tags.
+
+(6) Each field must have the following attributes defined:
+a) id="" where the id value is unique across all the fields within the form
+b) name=""
+c) title="" where the title value contains a descriptive name that can be used to reference the
+field in an error message
+
+(7) Add the 'requiredsetid' attribute to each form field where a value is required.  In the event that
+there are two (or more) fields where only one value is required among the set of fields (e.g. a
+telephone number or an email address is required), add the attribute with the identical identifier
+value to each form field.  The following example demonstrates how to make a phone number or email
+address required:
+
+<input id="phone" name="phone" requiredsetid="contact" type="text" />
+<input id="email" name="email" requiredsetid="contact" type="text" />
+
+If a value is required for a "radio" type control, add the attribute with the identical identifer
+value to each "radio" form element.  For example:
+
+<input id="choice1" name="Radio" requiredsetid="radio" title="choice 1" type="radio" value="Choice 1" />
+<input id="choice2" name="Radio" requiredsetid="radio" title="choice 2" type="radio" value="Choice 2" />
+
+If the value is to be conditionally required based on the value of another field, then also add the
+'onlyif' attribute.  The following example demonstrates how to make the other reason (explanatory) text
+to be required only if the user has selected "other" as a reason type.
+
+<select id="reasonType" requiredsetid="reasonType" title="your reason" name="ReasonType">
+<option value="" selected="selected">Make a selection</option>
+<option value="too early">Too early</option>
+<option value="too late">Too late</option>
+<option value="other">Other</option>
+</select>
+
+<input id="otherReason" maxlength="40" name="otherReason" requiredsetid="otherReason"
+onlyif="ReasonType=other" size="30" title="other reason" type="text" />
+
+(8) Add the 'validatetype="date"' attribute to each form field where a date value is to be validated.
+Date values must be entered in mm/dd/yyyy (default) or yyyy-mm-dd format.  For example:
+
+<input id="mmddyyyy" name="mmddyyyy" title="mm/dd/yyyy date" type="text" validatetype="date" />
+<input id="yyyymmdd" name="yyyymmdd" title="yyyy-mm-dd date" type="text" validatetype="date" dateformat="yyyy-mm-dd" />
+
+(9) Add the 'validatetype="email"' attribute to each form field where an email address is to be validated.
+For example:
+
+<input id="emailAddress" name="emailAddress" title="email address" type="text" validatetype="email" />
+
+(10) Add the changefieldvalue="fieldName=fieldValue" attribute to each "radio" or "option" type form field
+where the specified field is to have its value replaced with the specified value if the "radio" item is
+selected.  Multiple name/value pairs can be entered using the '||' delimiter character.  For example:
+
+<option value="Pay" changefieldvalue="recipients=PayServicesDriverSupportGroup@schneider.com">
+<option value="Benefits" changefieldvalue="recipients=SNI_Benefits_Dept@schneider.com">
+
+(11) Each form field element must NOT have a defined onchange event handler.  An onchange event
+handler will be programmatically assigned.
+
+-->
+                                        <label for="topic"><sup>*</sup>Topic</label><br />
+                                        <select id="topic" title="topic" requiredsetid="topic" name="topic" formid="quzGFhTjwtNNhje">
+                                            <option value="" selected="selected">Select a topic</option>
+                                            <option value="Pay" changefieldvalue="recipients=PayServicesDriverSupportGroup@schneider.com|webadmin@schneider.com">Pay</option>
+                                            <option value="Benefits" changefieldvalue="recipients=SNI_Benefits_Dept@schneider.com|webadmin@schneider.com">Benefits</option>
+                                            <option value="Driver Handbook" changefieldvalue="recipients=CrossRoads@schneider.com|webadmin@schneider.com">Driver Handbook</option>
+                                            <option value="Technical Issue" changefieldvalue="recipients=DriverTechSupport@schneider.com|webadmin@schneider.com">Technical Issue</option>
+                                            <option value="Safety" changefieldvalue="recipients=LossPreventionCrossRoadsSupportGroup@schneider.com|webadmin@schneider.com">Safety</option>
+                                            <option value="Comments/Suggestions/Other" changefieldvalue="recipients=CrossRoads@schneider.com|webadmin@schneider.com">Comments/Suggestions/Other</option>
+                                        </select><br />
+                                        <label for="driverName"><sup>*</sup>Your Full Name (e.g. Jane Doe)</label><br />
+                                        <input id="driverName" title="your name" maxlength="50" requiredsetid="driverName" name="driverName" type="text" formid="quzGFhTjwtNNhje"><br />
+                                        <label for="driverNumber"><sup>*</sup>Driver Number</label><br />
+                                        <input id="driverNumber" title="driver number" maxlength="10" size="10" requiredsetid="driverNumber" name="driverNumber" type="text" formid="quzGFhTjwtNNhje"><br />
+                                        <label for="contactMethod">If you would like a response,<br /> how should we contact you?</label><br />
+                                        <select id="contactMethod" title="contact method" name="contactMethod" formid="quzGFhTjwtNNhje">
+                                            <option value="" selected="selected">Please select</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Phone">Phone</option>
+                                            <option value="STL/Manager">STL/Manager</option>
+                                        </select><br />
+                                        <label for="emailAddress">Email Address</label><br />
+                                        <input id="emailAddress" title="email address" maxlength="255" requiredsetid="email" onlyif="contactMethod=Email" validatetype="email" name="emailAddress" type="text" formid="quzGFhTjwtNNhje"><br />
+                                        <label for="phoneNumber">Phone Number</label><br />
+                                        <input id="phoneNumber" title="phone number" maxlength="20" requiredsetid="phone" onlyif="contactMethod=Phone" name="phoneNumber" type="text" formid="quzGFhTjwtNNhje"><br />
+                                        <label for="comments"><sup>*</sup>Please type in your message</label><br />
+                                        <textarea id="comments" title="your message" rows="9" cols="25" requiredsetid="comments" name="comments" formid="quzGFhTjwtNNhje"></textarea><br />
+                                        <input type="reset" value="Clear Form">
+                                        &nbsp;
+                                        <input type="button" value="Submit">
+                                      </form>
+                                        <div class="clear">&nbsp;</div>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div id="Independant-Contractors" data="Independant Contractors" class="lp-tabcontent padit">
+                                <!-- Also Accordian Link -->
+                                    <h4>IC Support</h4>
+                                    <div>
+                                        <h3>Call Us:</h3>
+                                        <p>From the United States call 1-800-558-7010 press "2" and then "2" to reach Schneider's IT Support Center, <strong>24 hours a day, 7 days a week.</strong></p>
+                                        <p>Form here!</p>
+                                        <div class="clear">&nbsp;</div>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div id="Students" data="Students" class="lp-tabcontent padit">
+                                <!-- Also Accordian Link -->
+                                    <h4>Student Support</h4>
+                                    <div>
+                                        <h3>Call Us:</h3>
+                                        <p>From the United States call 1-800-558-7010 press "2" and then "2" to reach Schneider's IT Support Center, <strong>24 hours a day, 7 days a week.</strong></p>
+                                        <p>Form here</p>
+                                        <div class="clear">&nbsp;</div>
+                                        <hr />
+                                    </div>
+                                </div>
+                                <div id="Office-Shop-and-Warehouse" data="Office Shop and Warehouse" class="lp-tabcontent padit">
+                                <!-- Also Accordian Link -->
+                                    <h4>Office, Shop and Warehouse</h4>
+                                    <div>
+                                        <p>Technical Support is available for issues relating to your user account and password. For issues relating to the configuration of your machine, please refer to the <a class="orange" href="faq.html">FAQ</a> page.</p>
+                                        <h3>Call Us:</h3>
+                                        <p>If you need assistance with your account, please call 1-800-558-6767 x5924277 for technical support</p>
+                                        <p>Form here</p>
+                                        <div class="clear">&nbsp;</div>
+                                        <hr />
+                                    </div>
+                                </div>
+                            <!-- End Single Tab Content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- CLOSE section group -->
+        <div class="clear"></div>
+    </div><!-- END content-wrapper -->
+    <div id="footer">
+    	<p style="text-align: center;">Copyright &copy; 2011 Schneider National Inc.   All Rights Reserved</p>
+        <p id="footer-logo"><a href="http://schneider.com" title="Schneider National - Main Site">Schneider National, Inc. - CrossRoads</a></p>
+    </div>
+
+</body>
+</html>
+<!--[if !(IE 8)]><!-->
+<script type="text/javascript">
+	tabs(4);
+</script>
+<!--<![endif]-->
+
+<!--[if lt IE 9]>
+<script type="text/javascript">
+	tabsLtIE9(4);
+</script>
+<![endif]-->

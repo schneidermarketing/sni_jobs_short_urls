@@ -1,0 +1,5 @@
+C:\inetpub\wwwroot\SNI-Jobs\OO-Work-Assignments\bin\Debug\OO - Work Assignment.exe
+C:\inetpub\wwwroot\SNI-Jobs\OO-Work-Assignments\bin\Debug\OO - Work Assignment.pdb
+C:\inetpub\wwwroot\SNI-Jobs\OO-Work-Assignments\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\SNI-Jobs\OO-Work-Assignments\obj\x86\Debug\OO - Work Assignment.exe
+C:\inetpub\wwwroot\SNI-Jobs\OO-Work-Assignments\obj\x86\Debug\OO - Work Assignment.pdb

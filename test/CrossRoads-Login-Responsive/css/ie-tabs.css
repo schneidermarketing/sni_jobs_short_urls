@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+#nav {
+	position: relative;
+	border: none;
+}
+
+#nav li {
+	display: inline;
+}
+
+#nav li a.tab {
+	display: inline-block;
+}
+
+#nav section {
+	padding: 1%;
+	position: relative;
+	top: -2px;
+	left: -1px;
+	border: 1px solid #b0bec7;
+}
+
+.col { 
+	margin: 1% 0 1% 0%;
+}
+form#standardform label {
+	display: none;	
+}
+form#standardform input[type="text"], form#standardform input[type="password"] {
+	width: 100%;	
+}
+hr.footer { display:none; }
+
+a {
+   outline: 0;
+}

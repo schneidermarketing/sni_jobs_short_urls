@@ -1,0 +1,30 @@
+div#module-tabs { min-width: 260px; }
+div#module-tabs h2.lp-tabbed-title-full { color: #ffffff;background: #808285;padding: 20px 30px;font-size: 2.77em;margin: 0 -30px;text-align: center; }
+div#module-tabs h2.section-title-no-script { color: #ffffff;background: #808285;padding: 20px 30px;font-size: 2.5em;text-align: center;border-radius: 5px 5px 0 0;line-height: 1em; }
+div#module-tabs div.lp-tabcontent { clear: both;padding: 5px 40px; }
+div#module-tabs div.lp-content-bordered { border-top: 10px solid #F58220;border-bottom: 10px solid #cccccc;border-right: 1px solid #cccccc;border-left: 1px solid #cccccc;border-radius: 5px; }
+div#module-tabs div.lp-tabcontent h4 { color: #ff7011;font-size: 1.8em;line-height: 1.2em;padding-top: 0.6em; }
+div#module-tabs div.lp-tabcontent h4.lp-blocked { text-align: right;float: left; }
+div#module-tabs div.lp-tabcontent h4 span.content-lg-number { color: #ccc;font-size: 2.5em; }
+div#module-tabs div.lp-tabcontent h5 { color: #ff7011;margin-top: 5px; }
+div#module-tabs div.lp-tabcontent p { padding: 0 0 10px 0; }
+div#module-tabs ul.lp-tabs { width: 95.5%;display: inline-block;clear: both; }
+div#module-tabs div#lp-tab-wrapper { border-top: 2px solid #ccc;border-right: 2px solid #ccc;border-left: 2px solid #ccc;border-bottom: 2px solid #ccc;border-radius: 0 0 5px 5px;margin-bottom: 9px; }
+div#module-tabs ul.lp-tabs li { text-align: center;display: inline-block;float: left;cursor: pointer;height: 40px;margin-bottom: -24px;font-size: 1.1em;color: #4B4A4A;font-weight: bold;white-space: nowrap; }
+div#module-tabs ul.lp-tabs li span { white-space: nowrap; }
+div#module-tabs ul.lp-tabs li span { border-right: 2px solid #cccccc;margin-right: -15%;padding-left: 15%; }
+div#module-tabs ul.lp-tabs li:last-child span { border-right: none; }
+div#module-tabs ul.lp-tabs li.lp-tabactive { background: transparent url(../images/crossroads/lp-tabactive-bg.gif) bottom center no-repeat;color: #ff7011; }
+div#module-tabs div.tabbed_area.tabbed-no-script {border-top: 1px solid #808285;border-left: 1px solid #808285;border-right: 1px solid #808285;border-bottom: 10px solid #808285;border-radius: 6px 6px 5px 5px;margin: 20px 0; }
+div#module-tabs div.tabbed_area .padit { margin-top: 20px; }
+div#module-tabs div.tabbed_area { margin: 0 0 20px 0; }
+div#module-tabs span.divider { float: right;display: inline-block;width: 1px;height: 38px;position: relative;top: -30px;right: -15px; }
+div#module-tabs .tab-divider { background: transparent url(/Content/images/tab-divider.gif) top right no-repeat; }
+div#module-tabs span.tab-lg-number { font-size: 2.8em;font-weight: bold;color: #cccccc;line-height: 1em; }
+div#module-tabs .lp-accordian-pad { padding: 5px 10px; }
+div#module-tabs .lp-accordian-h4 { font-size: 1.5em;line-height: 1.5em;width: 100%; }
+div#module-tabs .lp-accordian-h4-number { color: #cccccc;font-size: 1.0em; }
+div#module-tabs h4.accordian-inactive-tab { margin: 5px;background: transparent url(../images/crossroads/accordian-inactive-bg.gif) center right no-repeat; }
+div#module-tabs h4.accordian-active-tab { margin: 5px;background: transparent url(../images/crossroads/accordian-active-bg.gif) center right no-repeat; }
+div#module-tabs .cleartxt{ clear: both; }
+.hidden { display: none; }
