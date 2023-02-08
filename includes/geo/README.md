@@ -1,30 +1,23 @@
 GeoIP package for YOURLS
 ========================
 
-What the hell?
---------------
+YOURLS includes GeoLite2 data created by MaxMind, available from [maxmind.com](https://www.maxmind.com)
+For more information on the the DB file (`GeoLite2-Country.mmdb`), see [Geolite2](https://dev.maxmind.com/geoip/geolite2-free-geolocation-data?lang=en).
 
-Text files from this package (GeoIP.dat and geoip.inc) are provided free by
-MaxMind. Accuracy is 99.5% so don't sweat it if you get unrealistic results.
+Flag files from this package come from various sources.
 
-If unsure, you can always get the latest version of the GeoIP database
-from the following URL: http://www.maxmind.com/app/geolitecountry
-(look for a link pointing to a file named "GeoIP.dat.gz")
 
-Flag files from this package come from various sources. Feel free to copy and
-redistribute them just as I'm doing :)
+IP to country Database 
+----------------------
 
-How to install this package
----------------------------
+YOURLS people update the DB here from time to time. To manually update the DB, register an account on maxmind.com and replace `GeoLite2-Country.mmdb` here with a newer version.
 
-* In directory "includes", create a subdirectory "geo", so you have the
-following directory structure:   
 
-		[yourls_root]
-			  +--admin
-			  +--[other directories...]
-			  +--includes
-				   +--geo
+Copyright and License
+---------------------
 
-* Put the content of this package (files GeoIP.dat and geoip.inc) into
-the freshly created "geo" subdirectory
+Database and Contents Copyright (c) 2021 MaxMind, Inc.
+
+Use of this MaxMind product is governed by MaxMind's GeoLite2 End User License Agreement, which can be viewed at https://www.maxmind.com/en/geolite2/eula.
+
+This database incorporates GeoNames [https://www.geonames.org] geographical data, which is made available under the Creative Commons Attribution 4.0 License. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.

@@ -22,8 +22,7 @@ body {
 	width:100%;
 	background:#e3f3ff url(../img/toolbar_bg.png) repeat-x bottom center;
 	color:#2A85B3;
-	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.5);
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.5);
 	z-index: 900000;
 }
 
@@ -36,7 +35,7 @@ body {
 	text-decoration:underline;
 }
 
-#yourls-about, #yourls-topsy, #yourls-delicious, #yourls-selfclose {
+#yourls-about, #yourls-selfclose {
 	margin-left:10px;
 	float:left;
 	display:block;
@@ -45,14 +44,10 @@ body {
 }
 
 #yourls-about a {
-	background:transparent url(../img/favicon.gif) center left no-repeat;
+	background:transparent url(../img/favicon.svg) center left no-repeat;
 	padding-left:20px;
 	color:inherit;
 	font-weight:bold;
-}
-
-#yourls-topsy {
-	width:300px;
 }
 
 #yourls-selfclose {
@@ -63,7 +58,7 @@ body {
 #yourls-once {
 	display:block;
 	text-indent:-9999px;
-	background:transparent url(../img/close_button.gif) center center no-repeat;
+	background:transparent url(../img/close_button.svg) center center no-repeat;
 	width:20px;
 	height:20px;
 	float:left;
@@ -72,7 +67,7 @@ body {
 #yourls-always {
 	display:none;
 	text-indent:-9999px;
-	background:transparent url(../img/close_button_red.gif) center center no-repeat;
+	background:transparent url(../img/close_button_red.svg) center center no-repeat;
 	width:20px;
 	height:20px;
 	float:left;

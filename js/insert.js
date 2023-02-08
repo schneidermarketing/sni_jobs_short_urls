@@ -5,16 +5,22 @@ $(document).ready(function(){
 	});
 	add_link_reset();
 	$('#new_url_form').attr('action', 'javascript:add_link();');
-	
+
 	$('input.text').focus(function(){
 		$(this).select();
 	});
-	
+
 	// this one actually has little impact, the .hasClass('disabled') in each edit_link_display(), remove() etc... fires faster
 	$(document).on( 'click', 'a.button', function() {
 		if( $(this).hasClass('disabled') ) {
 			return false;
 		}
+	});
+
+	// When Searching, explode search text in pieces -- see split_search_text_before_search()
+	$('#filter_form').submit( function(){
+		split_search_text_before_search();
+		return true;
 	});
 });
 
@@ -105,6 +111,7 @@ function remove_link(id) {
 					zebra_table();
 				});
 				decrement_counter();
+				decrease_total_clicks( id );
 			} else {
 				alert('something wrong happened while deleting :/');
 			}
@@ -120,6 +127,7 @@ function go_stats(link) {
 // Cancel edition of a link
 function edit_link_hide(id) {
 	$("#edit-" + id).fadeOut(200, function(){
+        $("#edit-" + id).remove();
 		end_disable('#actions-'+id+' .button');
 	});
 }
@@ -127,7 +135,7 @@ function edit_link_hide(id) {
 // Save edition of a link
 function edit_link_save(id) {
 	add_loading("#edit-close-" + id);
-	var newurl = encodeURI( $("#edit-url-" + id).val() );
+	var newurl = $("#edit-url-" + id).val();
 	var newkeyword = $("#edit-keyword-" + id).val();
 	var title = $("#edit-title-" + id).val();
 	var keyword = $('#old_keyword_'+id).val();
@@ -138,17 +146,17 @@ function edit_link_save(id) {
 		{action:'edit_save', url: newurl, id: id, keyword: keyword, newkeyword: newkeyword, title: title, nonce: nonce },
 		function(data){
 			if(data.status == 'success') {
-			
+
 				if( data.url.title != '' ) {
-					var display_link = '<a href="' + data.url.url + '" title="' + data.url.url + '">' + data.url.display_title + '</a><br/><small><a href="' + data.url.url + '">' + data.url.display_url + '</a></small>';
+					var display_link = '<a href="' + data.url.url + '" title="' + data.url.title + '">' + data.url.display_title + '</a><br/><small><a href="' + data.url.url + '">' + data.url.display_url + '</a></small>';
 				} else {
 					var display_link = '<a href="' + data.url.url + '" title="' + data.url.url + '">' + data.url.display_url + '</a>';
 				}
 
 				$("#url-" + id).html(display_link);
 				$("#keyword-" + id).html('<a href="' + data.url.shorturl + '" title="' + data.url.shorturl + '">' + data.url.keyword + '</a>');
-				$("#timestamp-" + id).html(data.url.date);
 				$("#edit-" + id).fadeOut(200, function(){
+                    $("#edit-" + id).remove();
 					$('#main_table tbody').trigger("update");
 				});
 				$('#keyword_'+id).val( newkeyword );
@@ -156,7 +164,10 @@ function edit_link_save(id) {
 			}
 			feedback(data.message, data.status);
 			end_loading("#edit-close-" + id);
-			end_disable("#actions-" + id + ' .button');
+			end_disable("#edit-close-" + id);
+			if(data.status == 'success') {
+				end_disable("#actions-" + id + ' .button');
+			}
 		}
 	);
 }
@@ -170,7 +181,7 @@ function zebra_table() {
 
 // Ready to add another URL
 function add_link_reset() {
-	$('#add-url').val('https://').focus();
+	$('#add-url').val('').focus();
 	$('#add-keyword').val('');
 }
 
@@ -188,6 +199,12 @@ function decrement_counter() {
 	});
 }
 
+// Decrease number of total clicks
+function decrease_total_clicks( id ) {
+	var total_clicks = $("#overall_tracking strong:nth-child(2)");
+	total_clicks.html( parseInt( total_clicks.html() ) - parseInt( $('#clicks-' + id).html() ) );
+}
+
 // Toggle Share box
 function toggle_share(id) {
 	if( $('#share-button-'+id).hasClass('disabled') ) {
@@ -197,6 +214,19 @@ function toggle_share(id) {
 	var longurl = link.attr('href');
 	var title = link.attr('title');
 	var shorturl = $('#keyword-'+id+' a:first').attr('href');
-	
+
 	toggle_share_fill_boxes( longurl, shorturl, title );
 }
+
+// When "Search" is clicked, split search text to beat servers which don't like query string with "http://"
+// See https://github.com/YOURLS/YOURLS/issues/1576
+function split_search_text_before_search() {
+	// Add 2 hidden fields and populate them with parts of search text
+	$("<input type='hidden' name='search_protocol' />").appendTo('#filter_form');
+	$("<input type='hidden' name='search_slashes' />").appendTo('#filter_form');
+	var search = get_protocol_slashes_and_rest( $('#filter_form input[name=search]').val() );
+	$('#filter_form input[name=search]').val( search.rest );
+	$('#filter_form input[name=search_protocol]').val( search.protocol );
+	$('#filter_form input[name=search_slashes]').val( search.slashes );
+}
+

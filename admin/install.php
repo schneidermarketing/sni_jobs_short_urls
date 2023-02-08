@@ -1,19 +1,27 @@
 <?php
 define( 'YOURLS_ADMIN', true );
 define( 'YOURLS_INSTALLING', true );
-require_once( dirname(dirname(__FILE__)).'/includes/load-yourls.php' );
-require_once( YOURLS_INC.'/functions-install.php' );
+require_once( dirname( __DIR__ ).'/includes/load-yourls.php' );
 
-$error = array();
+$error   = array();
 $warning = array();
 $success = array();
 
 // Check pre-requisites
-if ( !yourls_check_database_version() )
-	$error[] = yourls_s( '%s version is too old. Ask your server admin for an upgrade.', 'MySQL' );
+if ( !yourls_check_PDO() ) {
+	$error[] = yourls__( 'PHP extension for PDO not found' );
+	yourls_debug_log( 'PHP PDO extension not found' );
+}
 
-if ( !yourls_check_php_version() )
+if ( !yourls_check_database_version() ) {
+	$error[] = yourls_s( '%s version is too old. Ask your server admin for an upgrade.', 'MySQL' );
+	yourls_debug_log( 'MySQL version: ' . yourls_get_database_version() );
+}
+
+if ( !yourls_check_php_version() ) {
 	$error[] = yourls_s( '%s version is too old. Ask your server admin for an upgrade.', 'PHP' );
+	yourls_debug_log( 'PHP version: ' . PHP_VERSION );
+}
 
 // Is YOURLS already installed ?
 if ( yourls_is_installed() ) {
@@ -48,7 +56,7 @@ yourls_html_head( 'install', yourls__( 'Install YOURLS' ) );
 <div id="login">
 	<form method="post" action="?"><?php // reset any QUERY parameters ?>
 		<p>
-			<img src="<?php yourls_site_url(); ?>/images/yourls-logo.png" alt="YOURLS" title="YOURLS" />
+			<img src="<?php yourls_site_url(); ?>/images/yourls-logo.svg" id="yourls-logo" alt="YOURLS" title="YOURLS" />
 		</p>
 		<?php
 			// Print errors, warnings and success messages

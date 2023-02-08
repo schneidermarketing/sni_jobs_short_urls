@@ -81,61 +81,94 @@ function yourls_api_action_version() {
 		$return['db_version'] = YOURLS_DB_VERSION;
 	return yourls_apply_filter( 'api_result_version', $return );
 }
- 
+
 /**
- * Return API result. Dies after this
+ * Output and return API result
  *
+ * This function will echo (or only return if asked) an array as JSON, JSONP or XML. If the array has a
+ * 'simple' key, it can also output that key as unformatted text if expected output mode is 'simple'
+ *
+ * Most likely, script should not do anything after outputting this
+ *
+ * @since 1.6
+ *
+ * @param  string $mode          Expected output mode ('json', 'jsonp', 'xml', 'simple')
+ * @param  array  $output        Array of things to output
+ * @param  bool   $send_headers  Optional, default true: Whether a headers (status, content type) should be sent or not
+ * @param  bool   $echo          Optional, default true: Whether the output should be outputted or just returned
+ * @return string                API output, as an XML / JSON / JSONP / raw text string
  */
-function yourls_api_output( $mode, $return ) {
-	if( isset( $return['simple'] ) ) {
-		$simple = $return['simple'];
-		unset( $return['simple'] );
+function yourls_api_output( $mode, $output, $send_headers = true, $echo = true ) {
+	if( isset( $output['simple'] ) ) {
+		$simple = $output['simple'];
+		unset( $output['simple'] );
 	}
-	
-	yourls_do_action( 'pre_api_output', $mode, $return );
-	
-	if( isset( $return['statusCode'] ) ) {
-		$code = $return['statusCode'];
-	} elseif ( isset( $return['errorCode'] ) ) {
-		$code = $return['errorCode'];
-	} else {
-		$code = 200;
-	}
-	yourls_status_header( $code );
-	
+
+	yourls_do_action( 'pre_api_output', $mode, $output, $send_headers, $echo );
+
+    if( $send_headers ) {
+        if( isset( $output['statusCode'] ) ) {
+            $code = $output['statusCode'];
+        } elseif ( isset( $output['errorCode'] ) ) {
+            $code = $output['errorCode'];
+        } else {
+            $code = 200;
+        }
+        yourls_status_header( $code );
+    }
+
+    $result = '';
+
 	switch ( $mode ) {
 		case 'jsonp':
-			header( 'Content-type: application/javascript' );
-			echo $return['callback'] . '(' . json_encode( $return ) . ')';
+            if( $send_headers )
+                yourls_content_type_header( 'application/javascript' );
+
+            $callback = isset( $output['callback'] ) ? $output['callback'] : '';
+			$result =  $callback . '(' . json_encode( $output ) . ')';
 			break;
-	
+
 		case 'json':
-			header( 'Content-type: application/json' );
-			echo json_encode( $return );
+            if( $send_headers )
+                yourls_content_type_header( 'application/json' );
+
+			$result = json_encode( $output );
 			break;
-		
+
 		case 'xml':
-			header( 'Content-type: application/xml' );
-			echo yourls_xml_encode( $return );
+            if( $send_headers )
+                yourls_content_type_header( 'application/xml' );
+
+			$result = yourls_xml_encode( $output );
 			break;
-			
+
 		case 'simple':
 		default:
-			if( isset( $simple ) )
-				echo $simple;
+            if( $send_headers )
+                yourls_content_type_header( 'text/plain' );
+
+			$result = isset( $simple ) ? $simple : '';
 			break;
 	}
 
-	yourls_do_action( 'api_output', $mode, $return );
-	
-	die();
+    if( $echo ) {
+        echo $result;
+    }
+
+	yourls_do_action( 'api_output', $mode, $output, $send_headers, $echo );
+
+    return $result;
 }
 
 /**
  * Return array for API stat requests
  *
+ * @param string $filter  either "top", "bottom" , "rand" or "last"
+ * @param int    $limit   maximum number of links to return
+ * @param int    $start   offset
+ * @return array
  */
-function yourls_api_stats( $filter = 'top', $limit = 10, $start = 0 ) {
+function yourls_api_stats($filter = 'top', $limit = 10, $start = 0 ) {
 	$return = yourls_get_stats( $filter, $limit, $start );
 	$return['simple']  = 'Need either XML or JSON format for stats';
 	$return['message'] = 'success';
@@ -145,6 +178,7 @@ function yourls_api_stats( $filter = 'top', $limit = 10, $start = 0 ) {
 /**
  * Return array for counts of shorturls and clicks
  *
+ * @return array
  */
 function yourls_api_db_stats() {
 	$return = array(
@@ -153,19 +187,21 @@ function yourls_api_db_stats() {
 		'simple'     => 'Need either XML or JSON format for stats',
 		'message'    => 'success',
 	);
-		
+
 	return yourls_apply_filter( 'api_db_stats', $return );
 }
 
 /**
  * Return array for API stat requests
  *
+ * @param string $shorturl  Short URL to check
+ * @return array
  */
 function yourls_api_url_stats( $shorturl ) {
-	$keyword = str_replace( YOURLS_SITE . '/' , '', $shorturl ); // accept either 'http://ozh.in/abc' or 'abc'
-	$keyword = yourls_sanitize_string( $keyword );
+	$keyword = str_replace( yourls_get_yourls_site() . '/' , '', $shorturl ); // accept either 'http://ozh.in/abc' or 'abc'
+	$keyword = yourls_sanitize_keyword( $keyword );
 
-	$return = yourls_get_link_stats( $keyword );
+	$return = yourls_get_keyword_stats( $keyword );
 	$return['simple']  = 'Need either XML or JSON format for stats';
 	return yourls_apply_filter( 'api_url_stats', $return, $shorturl );
 }
@@ -173,18 +209,21 @@ function yourls_api_url_stats( $shorturl ) {
 /**
  * Expand short url to long url
  *
+ * @param string $shorturl  Short URL to expand
+ * @return array
  */
 function yourls_api_expand( $shorturl ) {
-	$keyword = str_replace( YOURLS_SITE . '/' , '', $shorturl ); // accept either 'http://ozh.in/abc' or 'abc'
-	$keyword = yourls_sanitize_string( $keyword );
-	
+	$keyword = str_replace( yourls_get_yourls_site() . '/' , '', $shorturl ); // accept either 'http://ozh.in/abc' or 'abc'
+	$keyword = yourls_sanitize_keyword( $keyword );
+
 	$longurl = yourls_get_keyword_longurl( $keyword );
-	
+
 	if( $longurl ) {
 		$return = array(
 			'keyword'   => $keyword,
-			'shorturl'  => YOURLS_SITE . "/$keyword",
+			'shorturl'  => yourls_link($keyword),
 			'longurl'   => $longurl,
+            'title'     => yourls_get_keyword_title( $keyword ),
 			'simple'    => $longurl,
 			'message'   => 'success',
 			'statusCode' => 200,
@@ -197,6 +236,6 @@ function yourls_api_expand( $shorturl ) {
 			'errorCode' => 404,
 		);
 	}
-	
+
 	return yourls_apply_filter( 'api_expand', $return, $shorturl );
 }
